@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :shopping_cart
+  has_one :shopping_cart, dependent: :destroy
   has_many :devil_fruits
   has_many :cart_items, through: :shopping_cart
   #   validates :email, presence: true, confirmation: true

@@ -16,87 +16,82 @@ CartItem.destroy_all
 
 puts 'Database is clean!🧼'
 
-ShoppingCart.create!(
-  is_full?: false
-)
-
-ShoppingCart.create!(
-  is_full?: false
-)
-
-ShoppingCart.create!(
-  is_full?: false
-)
-
 afafe = User.create!(
   username: Faker::FunnyName.name,
-  shopping_cart_id: ShoppingCart.last.id,
   email: "afafe@test.com",
   password: "123456"
 )
 
-User.create!(
+aymen = User.create!(
   username: Faker::FunnyName.name,
-  shopping_cart_id: ShoppingCart.last.id,
   email: "aymen@test.com",
   password: "123456"
 )
 
-User.create!(
+abdel = User.create!(
   username: Faker::FunnyName.name,
-  shopping_cart_id: ShoppingCart.last.id,
   email: "abdel@test.com",
   password: "123456"
 )
 
-User.create!(
+amine = User.create!(
   username: Faker::FunnyName.name,
-  shopping_cart_id: ShoppingCart.last.id,
   email: "amine@test.com",
   password: "123456"
 )
 
-User.create!(
+emma = User.create!(
   username: Faker::FunnyName.name,
-  shopping_cart_id: ShoppingCart.last.id,
   email: "emma@test.com",
   password: "123456"
 )
 
-puts 'Created #{User.count} Users! :femme_haussant_les_épaules:'
+ShoppingCart.create!(
+  user_id: emma.id,
+  is_full?: false
+)
+
+ShoppingCart.create!(
+  user_id: amine.id,
+  is_full?: false
+)
+
+ShoppingCart.create!(
+  user_id: abdel.id,
+  is_full?: false
+)
+
+ShoppingCart.create!(
+  user_id: aymen.id,
+  is_full?: false
+)
+
+ShoppingCart.create!(
+  user_id: afafe.id,
+  is_full?: false
+)
+
+puts "Created #{User.count} Users! 🍒:"
 
 50.times do
   DevilFruit.create!(
     user_id: User.last,
     name: Faker::JapaneseMedia::OnePiece.akuma_no_mi,
     description: Faker::Lorem.paragraph,
-    price: 1,
+    price: rand(0..100),
     status: 1
   )
 end
 
 CartItem.create(
-  shopping_cart_id: ShoppingCart.last,
-  devil_fruit_id: DevilFruit.last
+  shopping_cart_id: emma.shopping_cart.id,
+  devil_fruit_id: DevilFruit.last.id
 )
 
 CartItem.create(
   shopping_cart_id: ShoppingCart.last,
-  devil_fruit_id: DevilFruit.last
+  devil_fruit_id: DevilFruit.last.id
 )
 
 puts "Total number of dragon fruits: #{DevilFruit.all.count}"
-# require 'faker'
-
-# puts 'creating 10 fake devil fruits'
-
-# 10.times do
-#   devil = Restaurant.new(
-#     name:    Faker::Company.name,
-#     description: Faker::Lorem.paragraph(sentence_count: 2),
-#     price:  rand(0..100)
-#     status:
-#   )
-#   restaurant.save!
-# end
-# puts 'Finished!'
+puts 'Finished!🍌'

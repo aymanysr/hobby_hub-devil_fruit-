@@ -4,10 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   # Defines the root path route ("/")
-  resources :users do
-    resources :shopping_carts, only: %i[show edit update] do
-      resources :cart_items, only: %i[show edit update destroy]
-    end
+  resources :users
+  resource :shopping_cart, only: %i[show] do
+    resources :cart_items, only: %i[show create update destroy]
   end
   resources :devil_fruits
 end
