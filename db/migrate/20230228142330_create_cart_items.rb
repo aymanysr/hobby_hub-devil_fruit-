@@ -4,7 +4,7 @@ class CreateCartItems < ActiveRecord::Migration[7.0]
       t.references :devil_fruit, foreign_key: true
       t.references :shopping_cart, foreign_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
