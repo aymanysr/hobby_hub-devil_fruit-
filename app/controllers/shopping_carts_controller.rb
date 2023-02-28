@@ -1,7 +1,8 @@
 class ShoppingCartsController < ApplicationController
   before_action :set_shopping_cart, only: %i[show edit]
   def show
-    @cart_item = CartItem.new
+    @cart_items = CartItem.all
+    @user = current_user
   end
 
   def edit
