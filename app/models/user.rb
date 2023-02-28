@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :shopping_cart
+  #   validates :email, presence: true, confirmation: true
+  #   validates :encrypted_password, presence: true, confirmation: true
 end
