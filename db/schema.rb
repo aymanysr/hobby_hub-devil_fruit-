@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_142330) do
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
-    t.bigint "devil_fruit_id", null: false
-    t.bigint "shopping_cart_id", null: false
+    t.bigint "devil_fruit_id"
+    t.bigint "shopping_cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["devil_fruit_id"], name: "index_cart_items_on_devil_fruit_id"
@@ -38,8 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_142330) do
     t.boolean "is_full?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "devil_fruit_id", null: false
-    t.index ["devil_fruit_id"], name: "index_shopping_carts_on_devil_fruit_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,15 +49,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_142330) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.bigint "shopping_cart_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["shopping_cart_id"], name: "index_users_on_shopping_cart_id"
   end
 
   add_foreign_key "cart_items", "devil_fruits"
   add_foreign_key "cart_items", "shopping_carts"
   add_foreign_key "devil_fruits", "users"
-  add_foreign_key "shopping_carts", "devil_fruits"
-  add_foreign_key "users", "shopping_carts"
 end
