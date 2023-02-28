@@ -73,3 +73,17 @@ CartItem.create(
 )
 
 puts "Total number of dragon fruits: #{DevilFruit.all.count}"
+# require 'faker'
+
+# puts 'creating 10 fake devil fruits'
+
+# 10.times do
+#   devil = Restaurant.new(
+#     name:    Faker::Company.name,
+#     description: Faker::Lorem.paragraph(sentence_count: 2),
+#     price:  rand(0..100)
+#     status:
+#   )
+#   restaurant.save!
+# end
+# puts 'Finished!'

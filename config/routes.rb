@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :shopping_carts, only: %i[show edit update]
   resources :devil_fruits
+  resources :cart_items, only: %i[show edit update destroy]
 end
