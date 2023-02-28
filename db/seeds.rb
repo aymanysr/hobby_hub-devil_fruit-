@@ -16,36 +16,49 @@ CartItem.destroy_all
 
 puts 'Database is clean!🧼'
 
-shopping_cart_one = ShoppingCart.create!(
+ShoppingCart.create!(
+  is_full?: false
+)
+
+ShoppingCart.create!(
+  is_full?: false
+)
+
+ShoppingCart.create!(
   is_full?: false
 )
 
 afafe = User.create!(
   username: Faker::FunnyName.name,
+  shopping_cart_id: ShoppingCart.last.id,
   email: "afafe@test.com",
   password: "123456"
 )
 
 User.create!(
   username: Faker::FunnyName.name,
+  shopping_cart_id: ShoppingCart.last.id,
   email: "aymen@test.com",
   password: "123456"
 )
 
 User.create!(
   username: Faker::FunnyName.name,
+  shopping_cart_id: ShoppingCart.last.id,
   email: "abdel@test.com",
   password: "123456"
 )
 
 User.create!(
   username: Faker::FunnyName.name,
+  shopping_cart_id: ShoppingCart.last.id,
   email: "amine@test.com",
   password: "123456"
 )
 
 User.create!(
   username: Faker::FunnyName.name,
+  shopping_cart_id: ShoppingCart.last.id,
   email: "emma@test.com",
   password: "123456"
 )
