@@ -5,8 +5,8 @@ class CreateDevilFruits < ActiveRecord::Migration[7.0]
       t.string :description
       t.float :price
       t.integer :status
-      t.references :user, null: false, foreign_key: true
-      t.timestamps
+      t.references :user, foreign_key: true
+      t.timestamps null: false
     end
   end
 end
