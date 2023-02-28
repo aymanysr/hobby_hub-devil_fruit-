@@ -21,6 +21,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_102934) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
+end
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_104330) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "devil_fruits", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.integer "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_devil_fruits_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_102934) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "shopping_carts", "users"
+  add_foreign_key "users", "shopping_carts"
+  add_foreign_key "devil_fruits", "users"
 end
