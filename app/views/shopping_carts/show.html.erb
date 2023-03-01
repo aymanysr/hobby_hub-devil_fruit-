@@ -1,1 +1,24 @@
-<h1>Welcome to your shopping cart 😊</h1>
+<div class="layout-view--padding">
+
+
+
+    <h3> Welcome to your shopping cart 😊 </h3>
+
+    <p>
+      <select name="action" id="action" class="input--fullwidth">
+        <option disabled selected>Select an action...</option>
+        <optgroup label="Cart">
+          <option value="cart-prop">See my items</option>
+          <option value="add-cart-prop">Add an item</option>
+          <option value="rem-cart-prop">Remove an item</option>
+        </optgroup>
+
+      </select>
+    </p>
+
+  <p class="footer layout-footer">
+    <a id="submit" class="btn btn-primary btn-large">Apply</a>
+    <a class="btn btn-delete btn-large" onclick="clearCart()">Empty cart</a>
+  </p>
+
+</div>
