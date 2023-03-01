@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   resources :users
   resource :shopping_cart, only: %i[show] do
-    resources :cart_items, only: %i[show create update destroy]
+    resources :cart_items, only: %i[show new create destroy]
   end
   resources :devil_fruits
 end
