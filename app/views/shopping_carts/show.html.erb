@@ -1,1 +1,5 @@
 <h1>Welcome to your shopping cart 😊</h1>
+
+<% @cart_items.each do |cart_item|   %>
+  <%= cart_item.devil_fruit.name  %>
+<% end %>
