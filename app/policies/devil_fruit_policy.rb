@@ -9,6 +9,14 @@ class DevilFruitPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    create?
+  end
+
+  def create?
+    true
+  end
+
   def edit?
     user == record.user
   end
