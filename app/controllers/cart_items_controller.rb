@@ -9,14 +9,14 @@ class CartItemsController < ApplicationController
 
   def create
     # Find associated devil fruit and current cart
-    chosen_devil_fruit = DevilFruit.find(params[:devil_fruit_id])
-    @shopping_cart = current_user.shopping_cart
     @cart_item = CartItem.new
+    @chosen_devil_fruit = DevilFruit.find(params[:devil_fruit_id])
+    @shopping_cart = current_user.shopping_cart
     @cart_item.shopping_cart = @shopping_cart
-    @cart_item.product = chosen_devil_fruit
+    @cart_item.devil_fruit = @chosen_devil_fruit
     # Save and redirect to cart show path
     @cart_item.save
-    redirect_to shopping_cart_path(@shopping_cart)
+    redirect_to shopping_cart_path
   end
 
   def update
