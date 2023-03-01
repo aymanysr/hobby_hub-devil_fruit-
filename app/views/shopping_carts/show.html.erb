@@ -1,9 +1,14 @@
 <div class="layout-view--padding">
-
-
-
     <h3> Welcome to your shopping cart 😊 </h3>
 
+    <h4>Items in your Cart:</h4>
+        <% if @cart_items.count > 0 %>
+          <% @cart_items.each do |cart_item|   %>
+              <%= cart_item.devil_fruit.name  %>
+            <% end %>
+        <% else %>
+          <p>No items in your cart yet</p>
+      <% end %>
     <p>
       <select name="action" id="action" class="input--fullwidth">
         <option disabled selected>Select an action...</option>
@@ -12,7 +17,6 @@
           <option value="add-cart-prop">Add an item</option>
           <option value="rem-cart-prop">Remove an item</option>
         </optgroup>
-
       </select>
     </p>
 
