@@ -1,1 +1,14 @@
-<h1>Yo!</h1>
+<%# ************** Display Devil Fruit Cards ****** %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <% @devil_fruits.each do |devil_fruit| %>
+        <div class ="col-8 col-sm-6 col-md-4">
+          <div class="card card-nbjb bg-light mb-3 mt-3">
+            <div class="card-body">
+              <h5 class="card-text mb-1 text-xs font-gamma"> <%= devil_fruit.name%></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
