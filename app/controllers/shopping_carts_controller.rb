@@ -1,7 +1,9 @@
 class ShoppingCartsController < ApplicationController
   before_action :set_shopping_cart, only: %i[show edit]
+  before_action :authenticate_user!
+
   def show
-    @cart_item = CartItem.new
+    @cart_items = current_user.cart_items
   end
 
   def edit
@@ -22,6 +24,6 @@ class ShoppingCartsController < ApplicationController
   end
 
   def set_shopping_cart
-    @shopping_cart = ShoppingCart.find(params[:id])
+    @shopping_cart = current_user.shopping_cart
   end
 end
