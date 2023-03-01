@@ -14,7 +14,6 @@ class DevilFruitsController < ApplicationController
   def new
     @devil_fruit = DevilFruit.new
     authorize @devil_fruit
-
   end
 
   def create
