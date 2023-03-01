@@ -9,7 +9,6 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    raise
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.devil_fruit = @devil_fruit
     @cart_item.user = current_user
