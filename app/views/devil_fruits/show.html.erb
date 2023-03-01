@@ -10,8 +10,13 @@
       <li><%= @devil_fruit.description %></li>
       <li><%= @devil_fruit.price %></li>
       <li><%= link_to "Edit Devil Fruit", edit_devil_fruit_path(@devil_fruit)%></li>
+      <li><%= link_to 'Add to my Shopping Cart 🛒', devil_fruit_cart_items_path(@devil_fruit), data: { "turbo-method": :post } %></li>
       <li><%= link_to 'Go to my Shopping Cart 🛒', shopping_cart_path(current_user.shopping_cart) %></li>
       <li><%= link_to 'All Devil Fruits', devil_fruits_path(@devil_fruit) %></li>
     </div>
   </div>
 </div>
+
+<%# we have a user_id through shopping_cart %>
+<%# we have shopping_cart id %>
+<%# we have a devil_fruit_ id %>

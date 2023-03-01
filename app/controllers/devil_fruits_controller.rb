@@ -5,6 +5,7 @@ class DevilFruitsController < ApplicationController
 
   def show
     @devil_fruit = DevilFruit.find(params[:id])
+    # @chosen_devil_fruit
   end
 
   def new
