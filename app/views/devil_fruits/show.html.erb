@@ -11,9 +11,9 @@
       <li><%= @devil_fruit.description %></li>
       <li><%= @devil_fruit.price %></li>
       <% if current_user %>
-      <% if policy(@devil_fruit).edit? %>
-        <li><%= link_to "Edit Devil Fruit", edit_devil_fruit_path(@devil_fruit)%></li>
-      <% end %>
+        <% if policy(@devil_fruit).edit? %>
+          <li><%= link_to "Edit Devil Fruit", edit_devil_fruit_path(@devil_fruit)%></li>
+        <% end %>
         <li><%= link_to 'Add to my Shopping Cart 🛒', devil_fruit_cart_items_path(@devil_fruit), data: { "turbo-method": :post } %></li>
         <li><%= link_to 'Go to my Shopping Cart 🛒', shopping_cart_path(current_user.shopping_cart) %></li>
       <% end %>

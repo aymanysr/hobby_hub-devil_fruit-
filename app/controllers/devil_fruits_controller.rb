@@ -48,6 +48,6 @@ class DevilFruitsController < ApplicationController
   private
 
   def devil_fruit_params
-    params.require(:devil_fruit).permit(:name, :description, :price, :status)
+    params.require(:devil_fruit).permit(:name, :description, :price, :status, :photo)
   end
 end
