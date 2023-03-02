@@ -6,6 +6,11 @@
     <h4 class="px-4 py-4">Items in your Cart:</h4>
         <% if @cart_items.count > 0 %>
           <% @cart_items.each do |cart_item| %>
+          <% if cart_item.devil_fruit.photo.key.nil? %>
+          <img src="https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361" alt="default photo">
+        <% else %>
+          <%= cl_image_tag cart_item.devil_fruit.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
           <ul>
             <li>"<%= link_to cart_item.devil_fruit.name, cart_item_path(cart_item) %>" - <%= cart_item.devil_fruit.price %> $</li>
           </ul>
