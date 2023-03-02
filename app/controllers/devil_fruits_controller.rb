@@ -13,10 +13,12 @@ class DevilFruitsController < ApplicationController
 
   def new
     @devil_fruit = DevilFruit.new
+    authorize @devil_fruit
   end
 
   def create
     @devil_fruit = DevilFruit.new(devil_fruit_params)
+    authorize @devil_fruit
     if @devil_fruit.save
       redirect_to @devil_fruit
     else
