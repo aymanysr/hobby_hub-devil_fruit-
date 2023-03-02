@@ -7,11 +7,16 @@
   <div class="container">
     <div class="card">
       <h3><%= @devil_fruit.name %> 🍓</h3>
+      <img class="card-img-top rounded center" src="https://mymodernmet.com/wp/wp-content/uploads/2022/10/devil-fruit-carve-2.jpg" alt="Dragon Fruit image" style="max-width: 30%;">
       <li><%= @devil_fruit.description %></li>
       <li><%= @devil_fruit.price %></li>
-      <li><%= link_to "Edit Devil Fruit", edit_devil_fruit_path(@devil_fruit)%></li>
-      <li><%= link_to 'Add to my Shopping Cart 🛒', devil_fruit_cart_items_path(@devil_fruit), data: { "turbo-method": :post } %></li>
-      <li><%= link_to 'Go to my Shopping Cart 🛒', shopping_cart_path(current_user.shopping_cart) %></li>
+      <% if current_user %>
+      <% if policy(@devil_fruit).edit? %>
+        <li><%= link_to "Edit Devil Fruit", edit_devil_fruit_path(@devil_fruit)%></li>
+      <% end %>
+        <li><%= link_to 'Add to my Shopping Cart 🛒', devil_fruit_cart_items_path(@devil_fruit), data: { "turbo-method": :post } %></li>
+        <li><%= link_to 'Go to my Shopping Cart 🛒', shopping_cart_path(current_user.shopping_cart) %></li>
+      <% end %>
       <li><%= link_to 'All Devil Fruits', devil_fruits_path(@devil_fruit) %></li>
     </div>
   </div>
