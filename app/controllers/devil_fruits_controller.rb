@@ -1,10 +1,15 @@
 class DevilFruitsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  def index
-    @devil_fruits = policy_scope(DevilFruit.all)
-  end
 
+  def index
+    if params[:query].present?
+      @devil_fruits = policy_scope(DevilFruit.where("name ILIKE ?", "%#{params[:query]}%"))
+    else
+      @devil_fruits = policy_scope(DevilFruit.all)
+    end
+  end
+  
   def show
     @devil_fruit = DevilFruit.find(params[:id])
     authorize @devil_fruit
@@ -18,6 +23,7 @@ class DevilFruitsController < ApplicationController
 
   def create
     @devil_fruit = DevilFruit.new(devil_fruit_params)
+    @devil_fruit.user = current_user
     authorize @devil_fruit
     if @devil_fruit.save
       redirect_to @devil_fruit
@@ -43,9 +49,11 @@ class DevilFruitsController < ApplicationController
 
   def destroy
     @devil_fruit = DevilFruit.find(params[:id])
+    authorize @devil_fruit
     @devil_fruit.destroy
-    redirect_to devil_fruit_url
+    redirect_to devil_fruits_url, notice: "Devil fruit has been destroyed!"
   end
+
 
   private
 

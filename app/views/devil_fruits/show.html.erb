@@ -18,7 +18,12 @@
         <% if policy(@devil_fruit).edit? %>
           <li><%= link_to "Edit Devil Fruit", edit_devil_fruit_path(@devil_fruit)%></li>
         <% end %>
-        <li><%= link_to 'Add to my Shopping Cart 🛒', devil_fruit_cart_items_path(@devil_fruit), data: { "turbo-method": :post } %></li>
+        <% if policy(@devil_fruit).destroy? %>
+        <li><%= link_to 'Delete my Devil Fruit 🛒', devil_fruit_path(@devil_fruit), data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %></li>
+        <% end %>
+        <% unless current_user == @devil_fruit.user %>
+          <li><%= link_to 'Add to my Shopping Cart 🛒', devil_fruit_cart_items_path(@devil_fruit), data: { "turbo-method": :post } %></li>
+        <% end %>
         <li><%= link_to 'Go to my Shopping Cart 🛒', shopping_cart_path(current_user.shopping_cart) %></li>
       <% end %>
       <li><%= link_to 'All Devil Fruits', devil_fruits_path(@devil_fruit) %></li>
