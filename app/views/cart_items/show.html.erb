@@ -8,7 +8,7 @@
         <% if @cart_item.devil_fruit.photo.key.nil? %>
           <img src="https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361" alt="default photo">
         <% else %>
-          <%= cl_image_tag @cart_item.devil_fruit.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @cart_item.devil_fruit.photo.key, crop: :fill %>
         <% end %>
       <li><%= @cart_item.devil_fruit.description %></li>
       <li><%= @cart_item.devil_fruit.price %> Berries</li>
