@@ -1,1 +1,14 @@
-// Specific CSS for your home-page
+form {
+  width: 350px;
+  background-color: transparent;
+}
+
+body{
+  background-color: black;
+   color: white;
+}
+.fires img{
+  width: 50px;
+  animation: fires 7s linear infinite;
+
+}
