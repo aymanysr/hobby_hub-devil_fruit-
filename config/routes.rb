@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :cart_items, only: %i[create]
   end
   resources :cart_items, only: %i[show update destroy]
+
+  get "search", to: "devil_fruits#search"
 end
