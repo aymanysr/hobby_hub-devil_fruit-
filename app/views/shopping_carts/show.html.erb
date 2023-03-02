@@ -1,28 +1,17 @@
-<div class="layout-view--padding">
-    <h3> Welcome to your shopping cart 😊 </h3>
+<%# app/view/shopping_carts/show.html.erb %>
 
-    <h4>Items in your Cart:</h4>
+<h3> Welcome to your Shopping Cart! 🛒 </h3>
+<div class="container">
+  <div class="card">
+    <h4 class="px-4 py-4">Items in your Cart:</h4>
         <% if @cart_items.count > 0 %>
-          <% @cart_items.each do |cart_item|   %>
-              <%= cart_item.devil_fruit.name  %>
+          <% @cart_items.each do |cart_item| %>
+          <ul>
+            <li>"<%= link_to cart_item.devil_fruit.name, cart_item_path(cart_item) %>" - <%= cart_item.devil_fruit.price %> $</li>
+          </ul>
             <% end %>
         <% else %>
-          <p>No items in your cart yet</p>
+          <p>No items in your cart yet!</p>
       <% end %>
-    <p>
-      <select name="action" id="action" class="input--fullwidth">
-        <option disabled selected>Select an action...</option>
-        <optgroup label="Cart">
-          <option value="cart-prop">See my items</option>
-          <option value="add-cart-prop">Add an item</option>
-          <option value="rem-cart-prop">Remove an item</option>
-        </optgroup>
-      </select>
-    </p>
-
-  <p class="footer layout-footer">
-    <a id="submit" class="btn btn-primary btn-large">Apply</a>
-    <a class="btn btn-delete btn-large" onclick="clearCart()">Empty cart</a>
-  </p>
-
+  </div>
 </div>
