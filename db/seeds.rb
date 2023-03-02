@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
 
 puts 'Cleaning Database!🫧'
 
@@ -73,15 +74,27 @@ ShoppingCart.create!(
 
 puts "Created #{User.count} Users! 🍒:"
 
-50.times do
-  DevilFruit.create!(
-    user_id: User.last,
-    name: Faker::JapaneseMedia::OnePiece.akuma_no_mi,
-    description: Faker::Lorem.paragraph,
-    price: rand(0..100),
-    status: 1
-  )
-end
+gomu_file = URI.open("https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361")
+gomu_gomu = DevilFruit.new(
+              user_id: emma.id,
+              name: "Gomu gomu no mi",
+              description: Faker::Lorem.paragraph,
+              price: 3_000_000_000,
+              status: 1
+              )
+gomu_gomu.photo.attach(io: gomu_file, filename: "gomu_gomu_no_mi.png", content_type: "image/png")
+gomu_gomu.save
+
+mera_file = URI.open("https://mystickermania.com/cdn/stickers/anime/one-piece-mera-mera-no-mi-512x512.png")
+mera_mera = DevilFruit.new(
+              user_id: emma.id,
+              name: "mera mera no mi",
+              description: Faker::Lorem.paragraph,
+              price: 1_500_000_000,
+              status: 1
+              )
+mera_mera.photo.attach(io: mera_file, filename: "mera_mera_no_mi.png", content_type: "image/png")
+mera_mera.save
 
 CartItem.create(
   shopping_cart_id: emma.shopping_cart.id,

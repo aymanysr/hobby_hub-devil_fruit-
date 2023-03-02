@@ -9,10 +9,14 @@
         <% @devil_fruits.each do |devil_fruit| %>
           <div class ="col-8 col-sm-6 col-md-4">
             <div class="card bg-light mb-3 mt-3">
-            <img class="card-img-top" src="https://mymodernmet.com/wp/wp-content/uploads/2022/10/devil-fruit-carve-2.jpg" alt="Dragon Fruit image">
+            <% if devil_fruit.photo.key.nil? %>
+              <img src="https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361" alt="default photo">
+            <% else %>
+              <%= cl_image_tag devil_fruit.photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
               <div class="card-body">
                 <h5 class="card-text mb-1 text-xs font-gamma"> <%= devil_fruit.name %></h5>
-                <h5 class="card-text mb-1 text-xs font-gamma"><%= devil_fruit.price %> $</h5>
+                <h5 class="card-text mb-1 text-xs font-gamma"><%= devil_fruit.price %> Berries</h5>
                 <p class="card-text card-link mb-1 text-xs"> <%= link_to 'Show Devil Fruit 🍓', devil_fruit_path(devil_fruit)%></p>
               </div>
             </div>
