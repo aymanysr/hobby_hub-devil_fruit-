@@ -6,6 +6,7 @@ class ShoppingCartsController < ApplicationController
 
   def show
     @cart_items = current_user.cart_items
+    puts "@cart_items = #{@cart_items.inspect}"
   end
 
   def edit

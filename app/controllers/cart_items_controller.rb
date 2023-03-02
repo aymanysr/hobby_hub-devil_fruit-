@@ -11,30 +11,15 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    # Find associated devil fruit and current cart
-    @cart_item = CartItem.new
     @chosen_devil_fruit = DevilFruit.find(params[:devil_fruit_id])
-    @shopping_cart = current_user.shopping_cart
-    @cart_item.shopping_cart = @shopping_cart
-    @cart_item.devil_fruit = @chosen_devil_fruit
-    # Save and redirect to cart show path
-    @cart_item.save
-    redirect_to shopping_cart_path
+    @shopping_cart = current_user.shopping_cart || current_user.create_shopping_cart
+    @cart_item = @shopping_cart.cart_items.build(devil_fruit: @chosen_devil_fruit)
 
-   # raise
-   # @cart_item = CartItem.new(cart_item_params)
-   # @cart_item.devil_fruit = @devil_fruit
-   # @cart_item.user = current_user
-   # @shopping_cart = current_user.shopping_cart
-   #  @cart_item.save
-
-    # Find associated devil fruit and current cart
-    # @chosen_devil_fruit = DevilFruit.find(params[:devil_fruit_id])
-    # @shopping_cart = @cart_item.shopping_cart
-    # @chosen_devil_fruit = @cart_item.devil_fruit
-    # Save and redirect to cart show path
-    # @cart_item.save
-    # redirect_to shopping_cart_path(@shopping_cartç
+    if @cart_item.save
+      redirect_to shopping_cart_path
+    else
+      render :new
+    end
   end
 
   # def update (WE DONT NEED IT FOR NOW!)
