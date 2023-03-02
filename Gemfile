@@ -33,9 +33,11 @@ gem "jbuilder"
 # devise
 gem "devise"
 
-gem "simple_form", github: "heartcombo/simple_form"
-
+# Faker for seeding
 gem "faker"
+
+# Pundit for Authorizations
+gem "pundit"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

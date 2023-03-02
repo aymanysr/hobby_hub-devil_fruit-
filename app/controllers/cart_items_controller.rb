@@ -1,5 +1,7 @@
 class CartItemsController < ApplicationController
   before_action :set_cart_item, only: %i[show destroy]
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
 
   def show
   end

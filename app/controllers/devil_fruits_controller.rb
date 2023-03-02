@@ -1,10 +1,11 @@
 class DevilFruitsController < ApplicationController
   def index
-    @devil_fruits = DevilFruit.all
+    @devil_fruits = policy_scope(DevilFruit.all)
   end
 
   def show
     @devil_fruit = DevilFruit.find(params[:id])
+    authorize @devil_fruit
     # @chosen_devil_fruit
   end
 
@@ -23,10 +24,12 @@ class DevilFruitsController < ApplicationController
 
   def edit
     @devil_fruit = DevilFruit.find(params[:id])
+    authorize @devil_fruit
   end
 
   def update
     @devil_fruit = DevilFruit.find(params[:id])
+    authorize @devil_fruit
     if @devil_fruit.update(devil_fruit_params)
       redirect_to @devil_fruit
     else

@@ -1,6 +1,8 @@
 class ShoppingCartsController < ApplicationController
   before_action :set_shopping_cart, only: %i[show edit]
   before_action :authenticate_user!
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
 
   def show
     @cart_items = current_user.cart_items
