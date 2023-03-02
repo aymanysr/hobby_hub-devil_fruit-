@@ -1,9 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: transparent;
-  transition: 0.5s background-color ease;
-  color: white;
-
+  background: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,23 +9,4 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-}
-form{
-  width: 150px;
-  
-
-}
-
-.nav-link{
-  color: azure;
-}
-.btn{
-  color: white;
-  padding: 10px 25px;
-  background: transparent;
-  border: 1px solid ;
-  border-radius: 20px;
-  outline:none;
-  cursor: pointer;
-
 }
