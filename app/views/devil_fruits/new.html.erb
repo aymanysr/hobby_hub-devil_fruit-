@@ -24,11 +24,23 @@
               <label for="formFileDisabled" class="form-label mt-3">Image</label>
               <input class="form-control" type="file" id="formFile">
               </div>
-            <%= f.submit "Add Devil Fruit", class: "btn btn-info mt-3" %>
-          <% end %>
+              <div class="form-group">
+                <%= f.label :price, class: "font-weight-bold mt-3" %>
+                <%= f.text_field :price, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :description, class: "font-weight-bold mt-3" %>
+                <%= f.text_area :description, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :image, class: "form-label mt-3" %>
+                <%= f.file_field :photo, class: "form-control" %>
+              </div>
+              <%= f.submit "Add Devil Fruit", class: "btn btn-info mt-3" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </body>

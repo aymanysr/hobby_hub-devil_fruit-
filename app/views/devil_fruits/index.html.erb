@@ -5,10 +5,11 @@
 
   <%# ************** Display Devil Fruit Cards ****** %>
     <div class="container">
+
       <div class="row justify-content-center">
         <% @devil_fruits.each do |devil_fruit| %>
           <div class ="col-8 col-sm-6 col-md-4">
-            <div class="card bg-light mb-3 mt-3">
+            <div class="card bg-light text-center mb-3 mt-3">
             <% if devil_fruit.photo.key.nil? %>
               <img src="https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361" alt="default photo">
             <% else %>
@@ -17,7 +18,7 @@
               <div class="card-body">
                 <h5 class="card-text mb-1 text-xs font-gamma"> <%= devil_fruit.name %></h5>
                 <h5 class="card-text mb-1 text-xs font-gamma"><%= devil_fruit.price %> Berries</h5>
-                <p class="card-text card-link mb-1 text-xs"> <%= link_to 'Show Devil Fruit 🍓', devil_fruit_path(devil_fruit)%></p>
+                <p class="card-text  card-link mb-1 text-xs"> <%= link_to 'Show Devil Fruit 🍓', devil_fruit_path(devil_fruit)%></p>
               </div>
             </div>
           </div>
