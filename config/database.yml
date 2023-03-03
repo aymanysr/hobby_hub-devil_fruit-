@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: hobby_hub_production
-  username: hobby_hub
+  database: template0
+  username:
   password: <%= ENV["HOBBY_HUB_DATABASE_PASSWORD"] %>
