@@ -1,8 +1,10 @@
 <%# app/view/shopping_carts/show.html.erb %>
 
 <h3> Welcome to your Shopping Cart! 🛒 </h3>
-<div class="container">
-  <div class="card">
+  <div class="devil-fruit-container">
+        <div class="devil-fruit-card">
+        <div class="devil-fruit-image">
+  <div>
     <h4 class="px-4 py-4">Items in your Cart:</h4>
         <% if @cart_items.count > 0 %>
           <% @cart_items.each do |cart_item| %>
@@ -11,11 +13,16 @@
         <% else %>
           <%= cl_image_tag cart_item.devil_fruit.photo.key, height: 100, width: 100, crop: :fit %>
         <% end %>
+        </div>
           <ul>
             <li><%= link_to 'Remove from Cart', cart_item_path(cart_item), method: :delete, 'data-turbo-method': :delete %></li>
-            <li><%= link_to cart_item.devil_fruit.name, cart_item_path(cart_item), class: "bubbly-button" %> - <%= cart_item.devil_fruit.price %> Berries</li>
+                  <div class="devil-fruit-details">
+
+            <li><%= link_to cart_item.devil_fruit.name, cart_item_path(cart_item), class: "" %> - <%= cart_item.devil_fruit.price %> Berries</li>
+            </div>
           </ul>
             <% end %>
+            </div>
         <% else %>
           <p>No items in your cart yet!</p>
       <% end %>
