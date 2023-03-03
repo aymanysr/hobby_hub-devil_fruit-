@@ -1,0 +1,31 @@
+.card{
+width: 300px;
+height: 500px;
+border-radius: 15px;
+background-size: cover;
+position: relative;
+
+
+
+
+
+}
+.container{
+  display: d-flex;
+  width: 90%;
+  min-height: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 500px
+
+
+}
+.card:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.container:hover > .card:not(:hover) .card{
+  filter: brightness(0.5) blur(20px);
+}
