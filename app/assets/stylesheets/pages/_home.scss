@@ -3,13 +3,17 @@ form {
   background-color: transparent;
 }
 
-body{
+body {
   background-color: rgb(241, 241, 241);
   color: rgb(0, 0, 0);
   padding-top: 80px; /* Adjust this value based on the height of your navbar */
   // padding-bottom: 80px;
 }
-.fires img{
+.fires img {
   width: 50px;
   animation: fires 7s linear infinite;
+}
+
+.front-banner {
+  height: 50vh;
 }

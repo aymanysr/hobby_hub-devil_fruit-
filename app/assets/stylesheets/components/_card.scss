@@ -1,25 +1,21 @@
-.card{
+.card {
 width: 300px;
 height: 500px;
 border-radius: 15px;
 background-size: cover;
 position: relative;
-
-
-
-
-
 }
-.container{
+
+.containerg {
   display: d-flex;
   width: 90%;
   min-height: center;
   align-items: center;
   margin: 0 auto;
   gap: 500px
-
-
 }
+
+
 .card:hover{
   transform: scale(1.1);
   cursor: pointer;
