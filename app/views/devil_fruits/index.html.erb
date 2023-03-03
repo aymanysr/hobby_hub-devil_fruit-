@@ -17,8 +17,8 @@
             <% end %>
               <div class="card-body">
                 <h5 class="card-text mb-1 text-xs font-gamma"> <%= devil_fruit.name %></h5>
-                <h5 class="card-text mb-1 text-xs font-gamma"><%= devil_fruit.price %>💲</h5>
-                <p class="card-text  card-link mb-1 text-xs"> <%= link_to 'Show Devil Fruit 🍓', devil_fruit_path(devil_fruit)%></p>
+                <h5 class="card-text mb-1 text-xs font-gamma"><%= devil_fruit.price %> 💲Berrys</h5>
+                <p class="card-text  custom-btn btn-9"> <%= link_to 'Show Devil Fruit 🍓', devil_fruit_path(devil_fruit), class:"text-decoration-none text-dark"%></p>
               </div>
             </div>
           </div>
@@ -26,6 +26,7 @@
       </div>
     </div>
 
+
   <%# ************** Create Devil Fruit ****** %>
-  <p class="card-text card-link mb-1 text-xs"> <%= link_to 'Upload a new Devil Fruit 🍌', new_devil_fruit_path(@devil_fruit)%></p>
+  <p class="custom-btn btn-9"> <%= link_to 'Upload a new Devil Fruit 🍌', new_devil_fruit_path(@devil_fruit), class:"text-decoration-none text-dark"%></p>
 </div>
