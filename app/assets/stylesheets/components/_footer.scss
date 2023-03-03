@@ -1,7 +1,16 @@
+footer{
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100vw;
+  padding-top: 40px;
+}
 
 .footer {
   width: 100%;
-  position: absolute;
+  // position: absolute;
   bottom: 0;
   background: linear-gradient(to right, #00093c, #2d0b00);
   color: #fff;
