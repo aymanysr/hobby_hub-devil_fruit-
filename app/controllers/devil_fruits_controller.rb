@@ -9,7 +9,7 @@ class DevilFruitsController < ApplicationController
       @devil_fruits = policy_scope(DevilFruit.all)
     end
   end
-  
+
   def show
     @devil_fruit = DevilFruit.find(params[:id])
     authorize @devil_fruit
@@ -53,7 +53,6 @@ class DevilFruitsController < ApplicationController
     @devil_fruit.destroy
     redirect_to devil_fruits_url, notice: "Devil fruit has been destroyed!"
   end
-
 
   private
 
