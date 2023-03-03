@@ -1,34 +1,76 @@
-<div class="container">
+<div class="df-card-container">
   <h1 class="font-alpha">Your chosen Devil Fruit:</h1>
   <br>
   <!-- Display Specific Devil Fruit -->
   <div class="devil-fruit-container">
-  <div class="card">
     <div class="devil-fruit-card">
-      <h3><%= @devil_fruit.name %> 🍓</h3>
-      <% if @devil_fruit.photo.key.nil? %>
-        <img src="https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361" alt="default photo">
-      <% else %>
-        <%= cl_image_tag @devil_fruit.photo.key, height: 298, width: 298, crop: :fit %>
-      <% end %>
-      <ul class="devil-fruit-details " >
-        <li><%= @devil_fruit.description %></li>
-        <li><%= @devil_fruit.price %> Berries</li>
-      </ul>
+      <div class="devil-fruit-image">
+        <% if @devil_fruit.photo.key.nil? %>
+          <img src="https://cdn.shopify.com/s/files/1/0556/3822/9043/files/Fruit001.png?v=1650868361" alt="default photo">
+        <% else %>
+          <%= cl_image_tag @devil_fruit.photo.key, height: 298, width: 298, crop: :fit %>
+        <% end %>
+      </div>
+      <div class="devil-fruit-details">
+        <h3><%= @devil_fruit.name %> 🍓</h3>
+        <ul>
+          <li><%= @devil_fruit.description %></li>
+          <li><%= @devil_fruit.price %> Berries</li>
+        </ul>
+      </div>
       <% if current_user %>
         <div class="devil-fruit-actions">
-          <% if policy(@devil_fruit).edit? %>
-            <a href="<%= edit_devil_fruit_path(@devil_fruit) %>" class="button">Edit Devil Fruit</a>
-          <% end %>
-          <% if policy(@devil_fruit).destroy? %>
-            <%= link_to 'Delete my Devil Fruit 🛒', devil_fruit_path(@devil_fruit), data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" }, class: "button button-danger" %>
-          <% end %>
-          <a href="<%= devil_fruit_cart_items_path(@devil_fruit) %>" class="button button-primary" data-turbo-method="post">Add to my Shopping Cart 🛒</a>
-          <a href="<%= shopping_cart_path(current_user.shopping_cart) %>" class="button">Go to my Shopping Cart 🛒</a>
-        </div>
-      <% end %>
-      <a href="<%= devil_fruits_path(@devil_fruit) %>" class="button button-secondary">All Devil Fruits</a>
+          <ul>
+            <% if policy(@devil_fruit).edit? %>
+              <li>
+                <a class="button" style="--color: #96be25;" href="<%= edit_devil_fruit_path(@devil_fruit) %>" class="button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Edit Devil Fruit
+                </a>
+              </li>
+            <% end %>
+            <% if policy(@devil_fruit).destroy? %>
+              <li>
+                <a class="button" style="--color: #ff1867;" href="<%= devil_fruit_path(@devil_fruit) %>" class="button" data-turbo-method="delete" data-turbo-confirm="Are you sure?">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Delete my Devil Fruit 🛒
+                </a>
+              </li>
+            <% end %>
+            <li>
+              <a class="button" style="--color: #2596be;" href="<%= devil_fruit_cart_items_path(@devil_fruit) %>" class="button" data-turbo-method="post">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Add to my Shopping Cart 🛒
+              </a>
+            </li>
+            <li>
+              <a class="button" style="--color: #25a5be;" href="<%= shopping_cart_path(current_user.shopping_cart) %>">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Go to my Shopping Cart 🛒
+              </a>
+            </li>
+                    </div>
+                  <% end %>
+          </ul>
     </div>
-  </div>
+      <a class="button" style="--color: #2587be;" href="<%= devil_fruits_path(@devil_fruit) %>" class="button">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      All Devil Fruits
+      </a>
   </div>
 </div>
