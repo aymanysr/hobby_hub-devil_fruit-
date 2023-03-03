@@ -1,25 +1,27 @@
-// $fuschia: #22c2d7;
-// $button-bg: $fuschia;
-// $button-text-color: #000000;
-// $baby-blue: #76777a;
+$fuschia: #22c2d7;
+$button-bg: $fuschia;
+$button-text-color: #f6f1f1;
+$baby-blue: #76777a;
 
-// .bubbly-button {
-//   font-family: 'Helvetica', 'Arial', sans-serif;
-//   display: inline-block;
-//   font-size: 1em;
-//   padding: 1em 2em;
-//   margin-top: 100px;
-//   margin-bottom: 60px;
-//   -webkit-appearance: none;
-//   appearance: none;
-//   background-color: $button-bg;
-//   color: $button-text-color;
-//   border-radius: 4px;
-//   border: none;
-//   cursor: pointer;
-//   position: relative;
-//   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-//   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+.bubbly-button {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $button-bg;
+  color: $button-text-color;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
 
 //   &:focus {
 //     outline: 0;

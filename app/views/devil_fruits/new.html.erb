@@ -1,33 +1,30 @@
 <body class="form_background_img">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card my-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="card-body">
           <div class="card-header">
-            <h3 class="text-center my-3">Add Your Devil Fruit 🫐</h3>
+            <h3 class="text-center my-3 font-monospace">Add Your Devil Fruit 🫐</h3>
+              <%= simple_form_for(@devil_fruit) do |f| %>
+                  <div class="form-group">
+                    <%= f.label :name, class: "font-weight-bold font-monospace fs-5" %>
+                    <%= f.text_field :name, class: "form-control form-width rounded-pill shadow bg-body-tertiary", placeholder: "XX XX no me"%>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :price, class: "font-weight-bold font-monospace mt-3 fs-5" %>
+                    <%= f.text_field :price, class: "form-control form-width rounded-pill shadow bg-body-tertiary", placeholder: "Berrys💲" %>
+                  </div>
+                  <div class="mb-3">
+                    <%= f.label :image, class: "form-label font-monospace mt-3 fs-5" %>
+                    <%= f.file_field :photo, class: "form-control form-width rounded-pill shadow bg-body-tertiary" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :description, class: "font-weight-bold font-monospace mt-1 fs-5" %>
+                    <%= f.text_area :description, class: "form-control form-width rounded-pill shadow bg-body-tertiary", placeholder: "Talk about its super power" %>
+                  </div>
+                <%= f.submit "Add Devil Fruit", class: "btn btn-info mt-5 fs-6 rounded-pill shadow bg-body-tertiary" %>
+              <% end %>
           </div>
-          <div class="card-body">
-            <%= simple_form_for(@devil_fruit) do |f| %>
-              <div class="form-group">
-                <%= f.label :name, class: "font-weight-bold" %>
-                <%= f.text_field :name, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :price, class: "font-weight-bold mt-3" %>
-                <%= f.text_field :price, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :description, class: "font-weight-bold mt-3" %>
-                <%= f.text_area :description, class: "form-control" %>
-              </div>
-              <div class="mb-3">
-                <%= f.label :image, class: "form-label mt-3" %>
-                <%= f.file_field :photo, class: "form-control" %>
-              </div>
-              <%= f.submit "Add Devil Fruit", class: "btn btn-info mt-3" %>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
   </div>
