@@ -10,3 +10,23 @@
     -6px 12px 1px #828181,
     -7px 14px 1px #868585,
 }
+
+$font: 'Poppins', sans-serif;
+
+::selection {
+  background-color: #C3CFE2;
+}
+
+.text-gradient {
+  text-transform: uppercase;
+  background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font: {
+    size: 20vw;
+    family: $font;
+  }
+
+  ;
+}
