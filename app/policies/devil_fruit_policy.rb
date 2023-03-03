@@ -21,6 +21,12 @@ class DevilFruitPolicy < ApplicationPolicy
     user == record.user
   end
 
+
+
+
+
+  
+
   def update?
     user == record.user
   end
